@@ -16,8 +16,16 @@ const PlanATripButton: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const openTripsMenu = () => {
-    if (!location.pathname.startsWith("/countries") || !params.page)
-      navigate("/countries/1");
+    if (!location.pathname.startsWith("/countries") || !params.page) {
+      navigate("/countries/1", {
+        state: { openTripsMenu: true },
+      });
+    } else {
+      navigate(location.pathname, {
+        state: { openTripsMenu: !location.state?.openTripsMenu },
+        replace: true,
+      });
+    }
   };
 
   return (
