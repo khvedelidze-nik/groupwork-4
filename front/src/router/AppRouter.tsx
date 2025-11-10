@@ -10,7 +10,9 @@ const AppRouter = () => {
       <Route
         path="/"
         element={<Layout />}
-        children={[<Route path="/countries" element={<CountriesPage />} />]}
+        children={[
+          <Route path="/countries/:page" element={<CountriesPage />} />,
+        ]}
       />
     </Routes>
   );

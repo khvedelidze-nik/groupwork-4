@@ -1,12 +1,17 @@
+import styled from "styled-components";
 import Navbar from "../navbar/Navbar";
 import CountriesContentWrapper from "./CountriesContentWrapper";
 
+const StyledCountriesPage = styled.div`
+  position: relative;
+`;
+
 const CountriesPage = () => {
   return (
-    <div className="countries-page">
+    <StyledCountriesPage>
       <Navbar />
       <CountriesContentWrapper />
-    </div>
+    </StyledCountriesPage>
   );
 };
 

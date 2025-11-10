@@ -4,7 +4,7 @@ export const links = [
     text: "Home",
   },
   {
-    to: "/countries",
+    to: "/countries/1",
     text: "Countries",
   },
 ];
