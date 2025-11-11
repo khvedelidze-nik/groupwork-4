@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import type { CountryFilterInterface } from "../../shared/interfaces/CountryFilterInterface";
-import { useLocation, useNavigate } from "react-router-dom";
+import TextInput from "./inputs/TextInput";
+import NumberInput from "./inputs/NumberInput";
 
 const StyledCountriesSidebar = styled.div`
   position: relative;
@@ -14,50 +15,30 @@ const StyledCountriesSidebar = styled.div`
 `;
 
 const CountriesSidebar = (children: CountryFilterInterface) => {
-  const location = useLocation();
-  const navigate = useNavigate();
   return (
     <StyledCountriesSidebar>
       <span>Filter by name</span>
-      <input
-        type="text"
-        placeholder="Search by name"
+      <TextInput
+        label="Search by Name"
         value={children.searchFilter}
-        onChange={(e) => {
-          if (location.pathname !== "/countries/1") navigate("/countries/1");
-          children.setSearchFilter(e.target.value);
-        }}
+        setValue={children.setSearchFilter}
       />
       <span>Filter by subregion</span>
-      <input
-        type="text"
-        placeholder="Search by subregion"
+      <TextInput
+        label="Search by Subregion"
         value={children.regionFilter}
-        onChange={(e) => {
-          if (location.pathname !== "/countries/1") navigate("/countries/1");
-          children.setRegionFilter(e.target.value);
-        }}
+        setValue={children.setRegionFilter}
       />
       <span>Filter by population</span>
-      <input
-        type="text"
-        placeholder="Min population"
+      <NumberInput
+        label="Min population"
         value={children.minPopulationFilter}
-        onChange={(e) => {
-          const value = e.target.value.replace(/\D/g, "");
-          if (location.pathname !== "/countries/1") navigate("/countries/1");
-          children.setMinPopulationFilter(value);
-        }}
+        setValue={children.setMinPopulationFilter}
       />
-      <input
-        type="text"
-        placeholder="Max population"
+      <NumberInput
+        label="Max population"
         value={children.maxPopulationFilter}
-        onChange={(e) => {
-          const value = e.target.value.replace(/\D/g, "");
-          if (location.pathname !== "/countries/1") navigate("/countries/1");
-          children.setMaxPopulationFilter(value);
-        }}
+        setValue={children.setMaxPopulationFilter}
       />
     </StyledCountriesSidebar>
   );
