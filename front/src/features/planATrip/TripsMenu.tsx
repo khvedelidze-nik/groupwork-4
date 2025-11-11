@@ -11,7 +11,6 @@ const StyledTripsMenu = styled.div<{ $display?: string }>`
 `;
 
 const TripsMenu = ({ open }: { open: boolean }) => {
-  // const openTripsMenu = (bool: boolean) => {};
   return (
     <StyledTripsMenu $display={open ? "flex" : "none"}>
       Hello World

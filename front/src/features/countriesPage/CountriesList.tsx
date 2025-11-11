@@ -74,6 +74,7 @@ const CountriesList = (children: CountryFilteredInterface) => {
         open={modalOpen}
         onClose={toggleModal}
         children={country}
+        favorite={false}
       />
     </StyledCountriesWrapper>
   );
