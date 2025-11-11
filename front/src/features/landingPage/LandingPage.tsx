@@ -1,10 +1,16 @@
+import Navbar from "../navbar/Navbar";
+import LandingAboutUs from "./LandingAboutUs";
 import LandingHero from "./LandingHero";
+import LandingHowToInstruction from "./LandingHowToInstruction";
 
 const LandingPage = () => {
   return (
-    <div className="landing-page">
+    <>
+      <Navbar />
       <LandingHero />
-    </div>
+      <LandingAboutUs />
+      <LandingHowToInstruction />
+    </>
   );
 };
 
