@@ -9,6 +9,7 @@ const StyledTripBtn = styled.button`
   border-radius: 8px;
   font-size: small;
   padding: 0 5px;
+  cursor: pointer;
 `;
 
 const PlanATripButton: React.FC = () => {

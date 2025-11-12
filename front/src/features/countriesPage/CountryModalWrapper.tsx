@@ -54,9 +54,59 @@ const FavoriteBtn = styled.button<{ $bkgrnd: string }>`
   cursor: pointer;
 `;
 
+const HeadWrapper = styled.div`
+  display: flex;
+  height: 40px;
+  gap: 10px;
+  margin-bottom: 10px;
+`;
+const NameWrapper = styled.div`
+  display: flex;
+  max-height: 40px;
+  flex-direction: column;
+  gap: 4px;
+  padding: 3px;
+`;
+
+const StyledFlag = styled.div<{ $src: string }>`
+  height: 40px;
+  width: 70px;
+  border: 1px solid black;
+  background-image: url(${(props) => props.$src});
+  background-size: 70px 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+`;
+
 const CountryName = styled.span`
-  position: relative;
-  top: 0;
+  font-weight: bold;
+  font-size: 16px;
+`;
+const CountryCapital = styled.span`
+  font-style: italic;
+  font-size: 14px;
+`;
+
+const ContentWrapper = styled.div`
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const InformationWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
+
+const StyledInformation = styled.span`
+  font-weight: bold;
+`;
+const StyledInformationText = styled.span`
+  font-weight: normal;
 `;
 
 const CountryModalWrapper = ({
@@ -80,7 +130,48 @@ const CountryModalWrapper = ({
     <StyledModalWrapper onClick={closeModal}>
       <StyledModal onClick={(e) => e.stopPropagation()}>
         <CloseBtn onClick={closeModal}>×</CloseBtn>
-        <CountryName>Official Name: {children.name.official}</CountryName>
+        <HeadWrapper>
+          <StyledFlag $src={children.flags.png} />
+          <NameWrapper>
+            <CountryName>{children.name.official}</CountryName>
+            <CountryCapital>
+              Capital: {children.capital} - Subregion: {children.subregion}{" "}
+              {children.independent ? "- independent" : "- dependent"}
+            </CountryCapital>
+          </NameWrapper>
+        </HeadWrapper>
+        {children.flags.alt.length >= 1 ? (
+          <StyledInformation>
+            Flag Information:
+            <StyledInformationText>{children.flags.alt}</StyledInformationText>
+          </StyledInformation>
+        ) : null}
+        <ContentWrapper>
+          <InformationWrapper>
+            <StyledInformation>
+              Population:{" "}
+              <StyledInformationText>
+                {children.population}
+              </StyledInformationText>
+            </StyledInformation>
+            <StyledInformation>
+              Area:{" "}
+              <StyledInformationText>{children.area}</StyledInformationText>
+            </StyledInformation>
+            <StyledInformation>
+              Driving side:{" "}
+              <StyledInformationText>{children.car.side}</StyledInformationText>
+            </StyledInformation>
+            {children.car.signs[0].length >= 1 ? (
+              <StyledInformation>
+                Numberplate Signs:{" "}
+                <StyledInformationText>
+                  {children.car.signs.map((t) => t).join(", ")}
+                </StyledInformationText>
+              </StyledInformation>
+            ) : null}
+          </InformationWrapper>
+        </ContentWrapper>
         {favorite ? (
           <FavoriteBtn $bkgrnd="#ffff00">★</FavoriteBtn>
         ) : (

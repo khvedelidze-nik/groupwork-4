@@ -16,7 +16,7 @@ const InstructionWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 50px;
+  gap: 20px;
   box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px,
     rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px,
     rgba(0, 0, 0, 0.09) 0px 32px 16px;
@@ -39,6 +39,7 @@ const StyledHeader = styled.h1`
   font-family: sans-serif;
   text-align: center;
   color: rgb(255, 255, 255);
+  text-shadow: 0 0 2px black;
 `;
 
 const StyledOrderedList = styled.ol`
@@ -62,6 +63,7 @@ const StyledParagraph = styled.p`
   color: rgb(255, 255, 255);
   font-weight: 600;
   width: 700px;
+  text-shadow: 0 0 2px black;
 `;
 
 const LandingHowToInstruction = () => {

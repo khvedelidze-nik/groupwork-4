@@ -7,7 +7,7 @@ const StyledTripsMenu = styled.div<{ $display?: string }>`
   padding: 10px;
   width: 50%;
   flex-direction: column;
-  border-left: 4px solid black;
+  background-color: #bbbbbb;
 `;
 
 const TripsMenu = ({ open }: { open: boolean }) => {

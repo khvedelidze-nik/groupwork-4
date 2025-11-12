@@ -5,16 +5,17 @@ import { NavLink } from "react-router-dom";
 const StyledLinkWrapper = styled.div`
   display: flex;
   gap: 20px;
+  line-height: 40px;
 `;
 
 const StyledNavLink = styled(NavLink)`
   all: unset;
-  color: #ccc;
+  color: #555;
   font-size: larger;
   cursor: pointer;
 
   &.active {
-    color: white;
+    color: black;
     text-decoration: underline;
     text-decoration-color: rgba(0, 0, 128, 0.5);
     text-decoration-thickness: 3px;

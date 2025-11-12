@@ -3,7 +3,6 @@ import type { CountryInterface } from "../../shared/interfaces/CountryInterface"
 
 const StyledCountryCard = styled.div`
   background-color: rgb(220, 220, 220);
-  -webkit-user-drag: element;
   border-radius: 10px;
   padding: 10px;
   display: flex;
@@ -14,9 +13,10 @@ const StyledCountryCard = styled.div`
 const StyledFlag = styled.div<{ $src?: string }>`
   height: 40px;
   width: 70px;
+  border: 1px solid black;
   background-image: url(${(props) => props.$src});
   background-size: 70px 40px;
-  background-position: left;
+  background-position: center;
   background-repeat: no-repeat;
 `;
 const StyledName = styled.span`
